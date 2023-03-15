@@ -16,16 +16,7 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
     conn.write('Name: TEM') //send name to server 
-    conn.write('Move: up'); //sent the string move up to server
-    setInterval(() => {
-      conn.write('Move: right');
-    }, 50);
-    setInterval(() => {
-      conn.write('Move: down');
-    }, 100);
-    setInterval(() => {
-      conn.write('Move: up');
-    }, 150);
+    // conn.write('Move: up'); //sent the string move up to server
   });
   //interpret incoming data as text
   conn.setEncoding('utf8');
