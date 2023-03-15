@@ -24,4 +24,4 @@ const connect = function() {
   return conn;
 }
 
-module.exports = connect; //exports connect function in an object where key name and key value are 'connect'
+module.exports = {connect}; //exports connect function in an object where key name and key value are 'connect'
