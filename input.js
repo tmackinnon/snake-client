@@ -17,6 +17,7 @@ const setupInput = (conn) => {
     if (key === '\u0003') {
       process.exit();
     }
+    //up down left right movement
     if (key === 'w') {
       conn.write('Move: up')
     }
@@ -29,7 +30,17 @@ const setupInput = (conn) => {
     if (key === 'd') {
       conn.write('Move: right');
     }
-  };
+    // keys that send canned messages to the server
+    if (key === 'h') {
+      conn.write('Say: Hello!');
+    }
+    if (key === 'm') {
+      conn.write('Say: Muahaha');
+    }
+    if (key === 'i') {
+      conn.write('Say: snaaaake');
+    }
+};
 
   // if user types input handleUserInput will run
   stdin.on("data", handleUserInput);
