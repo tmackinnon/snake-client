@@ -7,10 +7,26 @@ const connect = function() {
     port: 50541 //PORT number
   });
 
-  conn.on("data", (data) => {
+  //receive data from server
+  conn.on('data', (data) => {
     console.log("Server says: ", data);
   });
 
+  //notify when connection is established
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server');
+    conn.write('Name: TEM') //send name to server 
+    conn.write('Move: up'); //sent the string move up to server
+    setInterval(() => {
+      conn.write('Move: right');
+    }, 50);
+    setInterval(() => {
+      conn.write('Move: down');
+    }, 100);
+    setInterval(() => {
+      conn.write('Move: up');
+    }, 150);
+  });
   //interpret incoming data as text
   conn.setEncoding('utf8');
 
